@@ -1,0 +1,235 @@
+fileFormatVersion: 2
+guid: b248a75aaa70b4f47a6a260074e5128a
+timeCreated: 1485025001
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Bunny
+    100004: Bunny10
+    100006: Bunny11
+    100008: Bunny12
+    100010: Bunny13
+    100012: Bunny14
+    100014: Bunny15
+    100016: Bunny16
+    100018: Bunny17
+    100020: Bunny18
+    100022: Bunny19
+    100024: Bunny20
+    100026: Bunny21
+    100028: Bunny22
+    100030: Bunny23
+    100032: Bunny24
+    100034: Bunny25
+    100036: Bunny26
+    400000: //RootNode
+    400002: Bunny
+    400004: Bunny10
+    400006: Bunny11
+    400008: Bunny12
+    400010: Bunny13
+    400012: Bunny14
+    400014: Bunny15
+    400016: Bunny16
+    400018: Bunny17
+    400020: Bunny18
+    400022: Bunny19
+    400024: Bunny20
+    400026: Bunny21
+    400028: Bunny22
+    400030: Bunny23
+    400032: Bunny24
+    400034: Bunny25
+    400036: Bunny26
+    2300000: Bunny
+    2300002: Bunny10
+    2300004: Bunny11
+    2300006: Bunny12
+    2300008: Bunny13
+    2300010: Bunny14
+    2300012: Bunny15
+    2300014: Bunny16
+    2300016: Bunny17
+    2300018: Bunny18
+    2300020: Bunny19
+    2300022: Bunny20
+    2300024: Bunny21
+    2300026: Bunny22
+    2300028: Bunny23
+    2300030: Bunny24
+    2300032: Bunny25
+    2300034: Bunny26
+    3300000: Bunny
+    3300002: Bunny10
+    3300004: Bunny11
+    3300006: Bunny12
+    3300008: Bunny13
+    3300010: Bunny14
+    3300012: Bunny15
+    3300014: Bunny16
+    3300016: Bunny17
+    3300018: Bunny18
+    3300020: Bunny19
+    3300022: Bunny20
+    3300024: Bunny21
+    3300026: Bunny22
+    3300028: Bunny23
+    3300030: Bunny24
+    3300032: Bunny25
+    3300034: Bunny26
+    4300000: Bunny10
+    4300002: Bunny11
+    4300004: Bunny12
+    4300006: Bunny13
+    4300008: Bunny14
+    4300010: Bunny15
+    4300012: Bunny16
+    4300014: Bunny17
+    4300016: Bunny18
+    4300018: Bunny
+    4300020: Bunny19
+    4300022: Bunny20
+    4300024: Bunny21
+    4300026: Bunny22
+    4300028: Bunny23
+    4300030: Bunny24
+    4300032: Bunny25
+    4300034: Bunny26
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bunny
+        weight: 1
+      - path: Bunny10
+        weight: 1
+      - path: Bunny11
+        weight: 1
+      - path: Bunny12
+        weight: 1
+      - path: Bunny13
+        weight: 1
+      - path: Bunny14
+        weight: 1
+      - path: Bunny15
+        weight: 1
+      - path: Bunny16
+        weight: 1
+      - path: Bunny17
+        weight: 1
+      - path: Bunny18
+        weight: 1
+      - path: Bunny19
+        weight: 1
+      - path: Bunny20
+        weight: 1
+      - path: Bunny21
+        weight: 1
+      - path: Bunny22
+        weight: 1
+      - path: Bunny23
+        weight: 1
+      - path: Bunny24
+        weight: 1
+      - path: Bunny25
+        weight: 1
+      - path: Bunny26
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

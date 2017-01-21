@@ -84,30 +84,7 @@ public class LevelManager : MonoBehaviour {
         speedMult = levelSpeedMultiplied / levelSpeed;
     }
 
-    /*
-       public void LoadNewLevel()
-        {
-            if (win)
-                return;
-
-            int scale = Random.Range(0, 2);
-
-
-            GameObject newLevel = Instantiate(levels[Random.Range(0, levels.Length)], new Vector3(0,0,levelStartZ), Quaternion.identity) as GameObject;
-            movingGameObjects.Add(newLevel);
-
-            newLevel.transform.localScale -= Vector3.right * scale * 2;
-
-            newLevel.GetComponent<Level>().setLengthBeforeNextAndLvlMgr(lengthBetweenLevels, this);
-        }
-
-        public void EndLevelSpawn()
-        {
-            win = true;
-
-            foreach (GameObject level in movingGameObjects)
-                level.SetActive(false);
-        }*/
+    
 
 
     IEnumerator RemoveAndDestroy(GameObject thisLevel)
@@ -124,49 +101,16 @@ public class LevelManager : MonoBehaviour {
         StopCoroutine(RemoveAndDestroy(null));
     }
 
-    /*
-    void LevelMovement()
-    {
-        if (win)
-            return;
-
-        foreach (GameObject level in movingGameObjects)
-        {
-			level.transform.position -= Vector3.forward * levelSpeedMultiplied * Time.deltaTime;
-
-            float stageLength;
-            level.GetComponent<Level>().GetLength(out stageLength);
-
-
-
-            if (level.transform.position.z + stageLength < levelEndZ && level.transform.position.z + stageLength > levelEndZ - 200)
-            {
-
-                //making sure Coroutine doesn't get called twice
-                level.transform.position -= Vector3.forward * 300;
-
-                //wait for end frame to remove level so the list doesn't get changed during foreach loop
-                StartCoroutine(RemoveAndDestroy(level));
-            }
-        }
-    }
-    */
+   
 
     void BackgroundMovement()
     {
-        //float aa;
+       
 
         for (int i=0; i < childrenAsBackground.Length; i++)
         {
 
-            //aa = childrenAsBackground[i].transform.position.y;
-
-           // Vector3 temp = childrenAsBackground[i].transform.position;
-
-            //temp.z -= levelSpeedMultiplied * Time.deltaTime;
-
-            //Debug.Log("Difference: " + (childrenAsBackground[i].transform.position.y -  temp.y));
-
+            
             childrenAsBackground[i].transform.Translate(0,0, -levelSpeedMultiplied * Time.deltaTime);
 
             
@@ -182,13 +126,21 @@ public class LevelManager : MonoBehaviour {
                 childrenAsBackground[i].transform.position = new Vector3(0, 0, childrenAsBackground[currentLastBG].transform.position.z + childBounds[currentLastBG].max.z - movAdjust);
 
                 currentLastBG = i;
+
+                Obstacle[] obstacles = childrenAsBackground[i].GetComponentsInChildren<Obstacle>();
+
+                for (int j = 0; j < obstacles.Length; j++)
+                {
+                    Destroy(obstacles[j].gameObject);
+                }
+
             }
         }
     }
 
 
     // Update is called once per frame
-    void Update ()
+    void FixedUpdate ()
     {
 
         //LevelMovement();
