@@ -22,6 +22,8 @@ public class GameIntro : MonoBehaviour {
 	
 	public List<GameObject> prevTweets;
 
+    public GameObject Lanes;
+
 	private bool isLerpingPhone = false;
 	private bool isLerping = false;
 	private bool finishedPhoneLerp = false;
@@ -127,12 +129,19 @@ public class GameIntro : MonoBehaviour {
                 DisableEverything();
             }
 
+            BunnyLane[] allLanes = Lanes.GetComponentsInChildren<BunnyLane>();
+            for (int i = 0; i < allLanes.Length; i++)
+            {
+                allLanes[i].GetReady();
+            }
+            Debug.Log("deleting all phone related");
         }
 
         if (currentStage < maxStage - 1)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton0))
             {
+                
                 if (finishedPhoneLerp == true)
                 {
                     //Player moves tweets

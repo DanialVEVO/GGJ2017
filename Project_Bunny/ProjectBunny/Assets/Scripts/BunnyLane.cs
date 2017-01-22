@@ -6,11 +6,18 @@ public class BunnyLane : MonoBehaviour {
 
     [SerializeField]
     float laneSpeed = 5f;
+
+    [SerializeField]
+    cannon CannonScript = null;
     
 
     bool lost = false;
     bool obstruction = false;
+
+    bool setup = true;
+    bool gettingReady = false;
     bool start = false;
+
 
     float holdBackTime = 0.0f;
 
@@ -93,15 +100,44 @@ public class BunnyLane : MonoBehaviour {
         if(GetComponentInChildren<ParticleSystem>().isPlaying)
             GetComponentInChildren<ParticleSystem>().Stop();
     }
-	
+
+    public void GetReady()
+    {
+        gettingReady = true;
+    }
+
+    void PrepareArmy()
+    {
+        transform.position += Vector3.forward * 0.2f;
+
+        if (transform.localPosition.z >= -13)
+        {
+            setup = false;
+            gettingReady = false;
+
+            if (CannonScript != null)
+                CannonScript.ReadyTheCannons();
+        }
+        
+    }
+
 	// Update is called once per frame
 	void FixedUpdate () {
 
+
+
+        if (setup)
+        {
+            if (gettingReady)
+                PrepareArmy();
+
+            return;
+        }
        
 
         if (!start)
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.Joystick1Button0))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.JoystickButton0))
                 start = true;
             else
                 return;

@@ -16,6 +16,9 @@ public class cannon : MonoBehaviour {
     public Transform muzzle;
 
     public bool allowFire = true;
+    bool gameStarted = false;
+
+    
 
     // Use this for initialization
     void Start()
@@ -23,9 +26,17 @@ public class cannon : MonoBehaviour {
         //StartCoroutine(Shoot());
     }
 
+    public void ReadyTheCannons()
+    {
+        gameStarted = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (!gameStarted)
+            return;
+
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton0))
             FireAway();
         
