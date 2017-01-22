@@ -48,8 +48,10 @@ public class BunnyLane : MonoBehaviour {
 
         GetComponentInChildren<ParticleSystem>().Play();
 
+        GetComponent<AudioSource>().Play();
+
         //other.GetComponent<Collider>().enabled = false;
-       // other.GetComponent<Rigidbody>().useGravity = false;
+        // other.GetComponent<Rigidbody>().useGravity = false;
 
     }
 
@@ -110,7 +112,7 @@ public class BunnyLane : MonoBehaviour {
     public void GetReady()
     {
         gettingReady = true;
-        GetComponent<AudioSource>().Play();
+        transform.parent.GetComponent<AudioSource>().Play();
     }
 
     void PrepareArmy()
