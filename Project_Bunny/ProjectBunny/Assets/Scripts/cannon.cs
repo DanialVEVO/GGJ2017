@@ -14,10 +14,12 @@ public class cannon : MonoBehaviour {
 
     public GameObject[] projectiles;
     public Transform muzzle;
+    public GameObject Title;
 
     public bool allowFire = true;
     bool gameStarted = false;
-
+    bool firstShot = true;
+    bool movingTitleScreen = false;
     
 
     // Use this for initialization
@@ -34,18 +36,38 @@ public class cannon : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+
         if (!gameStarted)
             return;
+
+        if (movingTitleScreen)
+            MoveTitleScreen();
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton0))
             FireAway();
         
     }
 
+    void MoveTitleScreen()
+    {
+        Title.transform.position += Vector3.forward * Time.deltaTime * 2.0f;
+
+        if (Title.transform.position.z > 93)
+            movingTitleScreen = false;
+    }
+
     public virtual void FireAway()
     {
+        
+
         if (allowFire)
         {
+            if (firstShot)
+            {
+                movingTitleScreen = true;
+                firstShot = false;
+            }
+
             //print("FireAway");
             StartCoroutine(Shoot());
         }

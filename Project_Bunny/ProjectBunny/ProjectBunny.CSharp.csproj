@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\GameIntro\GameIntro.cs" />
     <Compile Include="Assets\Scripts\GameIntro\PostCreator.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
+    <Compile Include="Assets\Scripts\ManualTrail.cs" />
     <Compile Include="Assets\Scripts\Obstacle.cs" />
     <Compile Include="Assets\Scripts\cannon.cs" />
     <Compile Include="Assets\Scripts\rotation.cs" />

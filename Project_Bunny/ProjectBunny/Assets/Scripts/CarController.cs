@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour {
 
+    public ParticleSystem Left;
+    public ParticleSystem Right;
     public GameObject truckBody;
     public GameObject backLeftTire;
     public GameObject backRightTire;
@@ -49,7 +51,33 @@ public class CarController : MonoBehaviour {
         MoveCar();
         RandomBounce();
         ClampCar();
+        ParticleControl();
         truckBody.transform.localEulerAngles = new Vector3(truckXRot, 0, truckZRot);
+    }
+
+    void ParticleControl()
+    {
+        if (Input.GetAxis("LeftX") == 1 || Input.GetKey("d"))
+        {
+            if(!Left.isPlaying)
+                Left.Play();
+            
+        }
+        else
+        {
+            if (Left.isPlaying)
+                Left.Stop();
+        }
+        if (Input.GetAxis("LeftX") == -1 || Input.GetKey("a"))
+        {
+            if (!Right.isPlaying)
+                Right.Play();
+        }
+        else
+        {
+            if (Right.isPlaying)
+                Right.Stop();
+        }
     }
 
     void MoveCar()
