@@ -78,9 +78,12 @@
     <Compile Include="Assets\Scripts\BunnyBehaviour.cs" />
     <Compile Include="Assets\Scripts\BunnyLane.cs" />
     <Compile Include="Assets\Scripts\CarController.cs" />
+    <Compile Include="Assets\Scripts\GameIntro\GameIntro.cs" />
+    <Compile Include="Assets\Scripts\GameIntro\PostCreator.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Obstacle.cs" />
     <Compile Include="Assets\Scripts\cannon.cs" />
+    <Compile Include="Assets\Scripts\rotation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Art\bunny\BunnyShader.shader" />
