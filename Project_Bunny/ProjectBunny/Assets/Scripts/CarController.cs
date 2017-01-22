@@ -54,7 +54,10 @@ public class CarController : MonoBehaviour {
 
     void MoveCar()
     {
-        if (Input.GetKey("a") && this.gameObject.transform.position.x < boundary)
+        //Debug.Log(Input.GetAxis("LeftX"));
+
+        //if (Input.GetKey("a") && this.gameObject.transform.position.x < boundary)
+        if ((Input.GetAxis("LeftX") == -1 || Input.GetKey("a")) && this.gameObject.transform.position.x < boundary)
         {
             if (xSpeed < maxSpeed)
             {
@@ -64,7 +67,7 @@ public class CarController : MonoBehaviour {
                     xSpeed += Time.deltaTime * acceleration;
             }
         }
-        else if (Input.GetKey("d") && this.gameObject.transform.position.x > -boundary)
+        else if ((Input.GetAxis("LeftX") == 1 || Input.GetKey("d")) && this.gameObject.transform.position.x > -boundary)
         {
             if (xSpeed > -maxSpeed )
             {

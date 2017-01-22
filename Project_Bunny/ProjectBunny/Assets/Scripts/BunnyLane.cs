@@ -88,7 +88,7 @@ public class BunnyLane : MonoBehaviour {
     {
         lost = true;
 
-
+        laneSpeed = 20f;
 
         if(GetComponentInChildren<ParticleSystem>().isPlaying)
             GetComponentInChildren<ParticleSystem>().Stop();
@@ -101,7 +101,7 @@ public class BunnyLane : MonoBehaviour {
 
         if (!start)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.Joystick1Button0))
                 start = true;
             else
                 return;
@@ -118,6 +118,9 @@ public class BunnyLane : MonoBehaviour {
             Setback();
             return;
         }
+
+        if (lost && transform.localPosition.z > 0 && laneSpeed != 5.0f)
+            laneSpeed = 5.0f;
 
         GoForward();
 	}
