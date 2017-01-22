@@ -11,6 +11,7 @@ public class PostCreator : MonoBehaviour {
     public Sprite[] avatar;
 
     public Sprite POTUSPortrait;
+    public Sprite GovPortrait;
 
     public string[] fname =
     {
