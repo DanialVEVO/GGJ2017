@@ -12,6 +12,7 @@ public class PostCreator : MonoBehaviour {
 
     public Sprite POTUSPortrait;
     public Sprite GovPortrait;
+    public Sprite SNNPortrait;
 
     public string[] fname =
     {
@@ -196,7 +197,7 @@ public class PostCreator : MonoBehaviour {
     {
         "I'm out of here! Goodbye world!",
         "GREATEST COUNTRY? More like, greatest CUNTRY!",
-        "Anywhere in the world is better than Jamerica!",
+        "Anywhere in the world is better than Dramerica!",
         "LEAVING! GOODBYE!",
         "What's WRONG? Are you all BLIND?",
         "This is all the fault of those leftist-rightist globalists.",
@@ -212,7 +213,7 @@ public class PostCreator : MonoBehaviour {
         "fight for your rights",
         "Wow! Okay. Lost faith in all of humanity",
         "I can't sleep because of the problems this country has",
-        "We need to stand together as REAL AMERICANS! Be proud!",
+        "We need to stand together as REAL DRAMERICANS! Be proud!",
         "This offends me greatly.",
         "Did you just assume my political stance?",
 
@@ -237,6 +238,14 @@ public class PostCreator : MonoBehaviour {
         "get on the boat get on the boat GET ON THE BOAT",
         "welcome to the wild west guys #SymeriaForever",
         "Politics more like polite dicks! NEVER TRUST THEM!",
+    };
+
+    public string[] deathMessage = new string[]
+    {
+        "End of an Era: Cats No Longer Favorite Internet Mammal",
+        "Protestors Rally: Legalization of Heroine takes Dramerica by storm",
+        "You WON'T BELIEVE these 5 ways of eliminating secularism!",
+        "A Dark Day in Symerian History: Patroller dies fleeing for <x> miles from Dramericans",
     };
 
     public string[] hashtag =
@@ -384,7 +393,7 @@ public class PostCreator : MonoBehaviour {
 
     public string[] POTUSMessage = new string[]
     {
-        "This is a disgrace! Fake Americans leaving the country! SHAME!",
+        "This is a disgrace! Fake Dramericans leaving the country! SHAME!",
         "Totally biased reporters are slandering my name - do not trust them!",
         "We will make our country GREAT AGAIN!",
     };
