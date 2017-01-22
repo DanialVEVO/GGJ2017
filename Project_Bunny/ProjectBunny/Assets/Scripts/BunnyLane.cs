@@ -84,7 +84,13 @@ public class BunnyLane : MonoBehaviour {
             BunnyLane[] AllLanes = transform.parent.GetComponentsInChildren<BunnyLane>();
 
             for (int i = 0; i < AllLanes.Length; i++)
+            {
+                if (AllLanes[i].CannonScript != null)
+                    AllLanes[i].CannonScript.EndReached();
+
                 AllLanes[i].EndIt();
+
+            }
 
             Debug.Log("the End");
 
@@ -104,6 +110,7 @@ public class BunnyLane : MonoBehaviour {
     public void GetReady()
     {
         gettingReady = true;
+        GetComponent<AudioSource>().Play();
     }
 
     void PrepareArmy()

@@ -15,11 +15,16 @@ public class cannon : MonoBehaviour {
     public GameObject[] projectiles;
     public Transform muzzle;
     public GameObject Title;
+    public AudioSource shootSound;
 
     public bool allowFire = true;
     bool gameStarted = false;
     bool firstShot = true;
     bool movingTitleScreen = false;
+
+    float timeTraveled = 0.0f;
+
+    bool end = false;
     
 
     // Use this for initialization
@@ -33,12 +38,29 @@ public class cannon : MonoBehaviour {
         gameStarted = true;
     }
 
+    public void EndReached()
+    {
+        end = true;
+
+        Debug.Log("Distance travelled = " + timeTraveled * 100);
+    }
+
+    public void GetDistance( out float distance)
+    {
+        distance = timeTraveled * 100;
+    }
+
     // Update is called once per frame
     void Update()
     {
 
         if (!gameStarted)
             return;
+
+        if (end)
+            return;
+
+        timeTraveled += Time.deltaTime;
 
         if (movingTitleScreen)
             MoveTitleScreen();
@@ -68,7 +90,7 @@ public class cannon : MonoBehaviour {
                 firstShot = false;
             }
 
-            //print("FireAway");
+            shootSound.Play();
             StartCoroutine(Shoot());
         }
     }

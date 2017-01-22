@@ -24,6 +24,11 @@ public class Obstacle : MonoBehaviour {
             gameObject.transform.parent = collision.gameObject.transform;
 
     }
+
+    public void OnStampeded()
+    {
+
+    }
     
     
 }

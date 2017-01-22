@@ -135,6 +135,7 @@ public class GameIntro : MonoBehaviour {
                 allLanes[i].GetReady();
             }
             Debug.Log("deleting all phone related");
+            currentStage = maxStage;
         }
 
         if (currentStage < maxStage - 1)
