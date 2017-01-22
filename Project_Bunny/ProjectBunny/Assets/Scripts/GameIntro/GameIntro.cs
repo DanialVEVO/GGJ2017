@@ -172,7 +172,6 @@ public class GameIntro : MonoBehaviour {
                 }
                 Debug.Log("deleting all phone related");
             }
-            currentStage = maxStage;
         }
 
         if (currentStage < maxStage - 1)
