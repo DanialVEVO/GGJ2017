@@ -10,7 +10,7 @@ public class rotation : MonoBehaviour
     private float secondsForOneLength = 1f;
     public Bounds boundary;  //Assuming that you're assigning this value in the inspector
 
-    public GameObject GameIntroManager;
+   // public GameObject GameIntroManager;
 
 
     void Start()
@@ -23,13 +23,14 @@ public class rotation : MonoBehaviour
 
 
 		nextRotate.y = speed * Time.deltaTime;
-		nextRotate.z = speed/3 * Time.deltaTime;   
+		nextRotate.z = speed/3 * Time.deltaTime;
 
-		transform.Rotate(nextRotate);
+        //transform.Rotate(nextRotate);
+        transform.Rotate(nextRotate, Space.Self);
 
-		openneer+=Time.deltaTime;
+        //openneer+=Time.deltaTime;
 
 
-		this.gameObject.transform.position = new Vector3(this.transform.position.x, (Mathf.Sin(openneer)*0.1f)+0.85f,this.transform.position.z);
+        //this.gameObject.transform.position = new Vector3(this.transform.position.x, (Mathf.Sin(openneer)*0.1f)+0.85f,this.transform.position.z);
     }
 }

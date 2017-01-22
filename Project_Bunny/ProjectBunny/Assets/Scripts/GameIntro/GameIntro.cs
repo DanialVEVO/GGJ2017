@@ -165,7 +165,7 @@ public class GameIntro : MonoBehaviour {
                 float distCovered = (Time.time - startTime) * popInSpeed;
                 float fracJourney = distCovered / journeyLength;
 
-                Vector3 targetPos = new Vector3(2, -10, 158);
+                Vector3 targetPos = new Vector3(1.5f, 4.5f, 91.8f);
                 mobilePhone.transform.position = Vector3.Lerp(mobilePhone.transform.position, targetPos, fracJourney * 0.1f);
 
                 if (mobilePhone.transform.position.y > targetPos.y)
