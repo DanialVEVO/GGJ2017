@@ -25,7 +25,11 @@ public class GameIntro : MonoBehaviour {
 	public GameObject Lanes;
 
 	public int NumberOfRampageTweets = 40;
+
 	public int maxDeathMessages = 3;
+    public int deathMessageAutoDelay = 3;
+
+    private bool displayingDeathMessage = false;
 
 	private int deathMessagesDisplayed;
 	private bool randomRampage = false;
@@ -118,9 +122,9 @@ public class GameIntro : MonoBehaviour {
 
 	}
 
-	public void DeathMessage()
+	void DeathMessage()
 	{
-		if (deathMessagesDisplayed != maxDeathMessages)
+		if (deathMessagesDisplayed <= maxDeathMessages)
 		{
 			//Play sound
 			AudioClip randomNotificationSound = tweetNotification[Random.Range(0, 4)];
@@ -141,7 +145,12 @@ public class GameIntro : MonoBehaviour {
 			//Place tweet
 			newTweet.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, -360, 0);
 
-			if (deathMessagesDisplayed <= 0)
+            if (displayingDeathMessage == false)
+            {
+                StartCoroutine(DeathMessageAuto());
+            }
+
+            if (deathMessagesDisplayed <= 0)
 			{
 				newText[1].text = "A Heroic Sacrifice: Patroller dies fleeing for <NUMBER OF MILES> from Dramericans.";
 			}
@@ -159,7 +168,7 @@ public class GameIntro : MonoBehaviour {
 
 		else if (deathMessagesDisplayed >= maxDeathMessages)
 		{
-			DisableEverything();
+			//DisableEverything();
 		}
 	}
 
@@ -167,6 +176,13 @@ public class GameIntro : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
 	{
+        /*
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            DeathMessage();
+        }
+        */
+
 		if (currentStage == (maxStage - 1))
 		{
 			//StartTweetSwarm()
@@ -305,6 +321,22 @@ public class GameIntro : MonoBehaviour {
 
 			isLerping = false;
 		}
+	}
+
+	public IEnumerator DeathMessageAuto()
+	{
+        float i = 0;
+        displayingDeathMessage = true;
+
+        while (i <= maxDeathMessages)
+		{
+            i++;
+            DeathMessage();
+            Debug.LogWarning("DOING AUTO MESSAGE");
+
+            yield return new WaitForSeconds(deathMessageAutoDelay);
+		}
+
 	}
 
 	IEnumerator TweetRampage(int maxNumTweets)
