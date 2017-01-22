@@ -23,6 +23,8 @@ public class BunnyLane : MonoBehaviour {
 
     GameObject lastTrigger = null;
 
+    GameObject collisionObject;
+
 
     // Use this for initialization
     void Start () {
@@ -50,6 +52,8 @@ public class BunnyLane : MonoBehaviour {
 
         GetComponent<AudioSource>().Play();
 
+        collisionObject = other.gameObject;
+
         //other.GetComponent<Collider>().enabled = false;
         // other.GetComponent<Rigidbody>().useGravity = false;
 
@@ -67,6 +71,11 @@ public class BunnyLane : MonoBehaviour {
             obstruction = false;
 
             GetComponentInChildren<ParticleSystem>().Stop();
+
+            if (collisionObject)
+            {
+                collisionObject.GetComponent<Obstacle>().OnStampeded();
+            }
 
             return;
         }

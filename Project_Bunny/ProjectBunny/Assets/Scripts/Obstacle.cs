@@ -6,6 +6,7 @@ public class Obstacle : MonoBehaviour {
 
     [SerializeField]
     float ObjectStrength = 10;
+    public bool canBreak;
 
     void Start()
     {
@@ -27,8 +28,21 @@ public class Obstacle : MonoBehaviour {
 
     public void OnStampeded()
     {
-
+        if (canBreak)
+        {
+            //this.GetComponent<Collider>().enabled = true;
+            var rigidBodies = this.GetComponentsInChildren<Rigidbody>();
+            foreach (Rigidbody R in rigidBodies)
+            {
+                R.isKinematic = false;
+            }
+            var colliders = this.GetComponentsInChildren<Collider>();
+            foreach (Collider C in colliders)
+            {
+                C.enabled = true;
+            }
+        }
     }
-    
-    
+
+
 }
