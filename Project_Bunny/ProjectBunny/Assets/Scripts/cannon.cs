@@ -16,15 +16,24 @@ public class cannon : MonoBehaviour {
     public Transform muzzle;
     public GameObject Title;
     public AudioSource shootSound;
+    public GameObject Lanes;
+
+    
+    public int speedUpgradeAfterXSeconds = 20;
+    public float lengthOfSpeedUpgrade = 0.3f;
 
     public bool allowFire = true;
     bool gameStarted = false;
     bool firstShot = true;
     bool movingTitleScreen = false;
 
+    int amountOfSpeedIncreases = 1;
+
     float timeTraveled = 0.0f;
 
     bool end = false;
+
+    
     
 
     // Use this for initialization
@@ -50,6 +59,8 @@ public class cannon : MonoBehaviour {
         distance = timeTraveled * 100;
     }
 
+
+
     // Update is called once per frame
     void Update()
     {
@@ -62,11 +73,30 @@ public class cannon : MonoBehaviour {
 
         timeTraveled += Time.deltaTime;
 
+        if (timeTraveled > amountOfSpeedIncreases * speedUpgradeAfterXSeconds)
+        {
+            IncreaseLaneSpeed();
+        }
+
         if (movingTitleScreen)
-            MoveTitleScreen();
+         MoveTitleScreen();
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton0))
             FireAway();
+        
+    }
+
+    void IncreaseLaneSpeed()
+    {
+        
+        BunnyLane[] allLanes = Lanes.GetComponentsInChildren<BunnyLane>();
+
+        for (int i = 0; i < allLanes.Length; i++)
+            allLanes[i].IncreaseSpeed(lengthOfSpeedUpgrade);
+
+        amountOfSpeedIncreases++;
+
+        Debug.Log(" Speed Upgraded" );
         
     }
 

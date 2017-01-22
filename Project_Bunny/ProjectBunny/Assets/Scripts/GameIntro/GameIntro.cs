@@ -118,7 +118,7 @@ public class GameIntro : MonoBehaviour {
 
 	}
 
-	void DeathMessage()
+	public void DeathMessage()
 	{
 		if (deathMessagesDisplayed != maxDeathMessages)
 		{

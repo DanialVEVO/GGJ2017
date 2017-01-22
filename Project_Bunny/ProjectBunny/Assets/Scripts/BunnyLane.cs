@@ -9,7 +9,10 @@ public class BunnyLane : MonoBehaviour {
 
     [SerializeField]
     cannon CannonScript = null;
-    
+
+    [SerializeField]
+    GameIntro Outro = null;
+
 
     bool lost = false;
     bool obstruction = false;
@@ -24,6 +27,7 @@ public class BunnyLane : MonoBehaviour {
     GameObject lastTrigger = null;
 
     GameObject collisionObject;
+
 
 
     // Use this for initialization
@@ -88,6 +92,11 @@ public class BunnyLane : MonoBehaviour {
         transform.position += Vector3.forward * laneSpeed * 0.01f;
     }
 
+    public void IncreaseSpeed(float increaseAmount)
+    {
+        laneSpeed += increaseAmount;
+    }
+
     void CatchupCheck()
     {
         if (transform.localPosition.z > 0)
@@ -103,6 +112,8 @@ public class BunnyLane : MonoBehaviour {
 
             }
 
+
+
             Debug.Log("the End");
 
         }
@@ -113,6 +124,9 @@ public class BunnyLane : MonoBehaviour {
         lost = true;
 
         laneSpeed = 20f;
+
+        if (Outro != null)
+            Outro.DeathMessage();
 
         if(GetComponentInChildren<ParticleSystem>().isPlaying)
             GetComponentInChildren<ParticleSystem>().Stop();
