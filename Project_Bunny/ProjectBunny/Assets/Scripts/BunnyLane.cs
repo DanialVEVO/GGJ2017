@@ -177,8 +177,15 @@ public class BunnyLane : MonoBehaviour {
 
         if (!start)
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.JoystickButton0))
-                start = true;
+            if (Application.platform == RuntimePlatform.OSXPlayer)
+            {
+                if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.JoystickButton0))
+                    start = true;
+            }
+            else
+            
+                if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.JoystickButton0))
+                    start = true;
             else
                 return;
         }

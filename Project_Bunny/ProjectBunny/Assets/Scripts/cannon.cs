@@ -90,8 +90,16 @@ public class cannon : MonoBehaviour {
         if (movingTitleScreen)
          MoveTitleScreen();
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton0))
-            FireAway();
+        if (Application.platform == RuntimePlatform.OSXPlayer)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton16))
+                FireAway();
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton0))
+                FireAway();
+        }
         
     }
 
