@@ -45,8 +45,12 @@ public class BunnyLane : MonoBehaviour {
 
         if (!other.GetComponent<Obstacle>())
             return;
+
         
+
         other.GetComponent<Obstacle>().GetObjectStrength(out holdBackTime);
+
+        Camera.main.GetComponent<CameraShake>().DoShake(0.3f, 0.03f * holdBackTime);
 
         obstruction = true;
 
@@ -110,6 +114,10 @@ public class BunnyLane : MonoBehaviour {
 
                 AllLanes[i].EndIt();
 
+                Camera.main.GetComponent<CameraShake>().DoShake(15.0f, 0.5f);
+
+                if(AllLanes[i].CannonScript != null)
+                    AllLanes[i].CannonScript.rotateLikeCrazy();
             }
 
 
@@ -142,7 +150,7 @@ public class BunnyLane : MonoBehaviour {
     {
         transform.position += Vector3.forward * 0.2f;
 
-        if (transform.localPosition.z >= -13)
+        if (transform.localPosition.z >= -20)
         {
             setup = false;
             gettingReady = false;

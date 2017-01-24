@@ -33,12 +33,21 @@ public class cannon : MonoBehaviour {
 
     bool end = false;
 
+    SphereCollider sphere;
+    Rigidbody rBody;
+
     
     
 
     // Use this for initialization
     void Start()
     {
+        //sphere = GetComponent<SphereCollider>();
+        rBody = GetComponentInChildren<Rigidbody>();
+        sphere = GetComponentInChildren<SphereCollider>();
+        GetComponentInChildren<Rigidbody>().isKinematic = true;
+        //sphere.gameObject.SetActive(false);
+        
         //StartCoroutine(Shoot());
     }
 
@@ -142,6 +151,15 @@ public class cannon : MonoBehaviour {
             yield return new WaitForSeconds(cooldown);
             allowFire = true;
         }
+    }
+
+    public void rotateLikeCrazy()
+    {
+        Debug.Log("It reached this");
+
+       // sphere.gameObject.SetActive(true);
+        rBody.isKinematic = false;
+        rBody.AddTorque(transform.up * 10);
     }
 
     public virtual void MakeProjectile(GameObject explosive)

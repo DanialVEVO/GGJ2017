@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameIntro : MonoBehaviour {
 
@@ -28,6 +29,7 @@ public class GameIntro : MonoBehaviour {
 
 	public int maxDeathMessages = 3;
     public int deathMessageAutoDelay = 3;
+    public cannon ToGetMiles;
 
     private bool displayingDeathMessage = false;
 
@@ -45,6 +47,9 @@ public class GameIntro : MonoBehaviour {
 
 	private float startTime;
 	public float journeyLength;
+
+    private bool waitTillEnd = false;
+    public float TimeLeftTillEnd = 8.0f;
 
 	// Use this for initialization
 	void Start ()
@@ -122,7 +127,7 @@ public class GameIntro : MonoBehaviour {
 
 	}
 
-	void DeathMessage()
+	public void DeathMessage()
 	{
 		if (deathMessagesDisplayed <= maxDeathMessages)
 		{
@@ -152,7 +157,10 @@ public class GameIntro : MonoBehaviour {
 
             if (deathMessagesDisplayed <= 0)
 			{
-				newText[1].text = "A Heroic Sacrifice: Patroller dies fleeing for <NUMBER OF MILES> from Dramericans.";
+                waitTillEnd = true;
+                float DistanceTravelled;
+                ToGetMiles.GetDistance(out DistanceTravelled);
+                newText[1].text = "A Heroic Sacrifice: Patroller dies fleeing for " + Mathf.Round(DistanceTravelled) + " meters from Dramericans.";
 			}
 
 			else
@@ -176,6 +184,15 @@ public class GameIntro : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
 	{
+        if (waitTillEnd)
+        {
+            TimeLeftTillEnd -= Time.deltaTime;
+
+            if (TimeLeftTillEnd <= 0)
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        }
+
         /*
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -306,7 +323,7 @@ public class GameIntro : MonoBehaviour {
 	public IEnumerator MoveTweetsUp()
 	{
 		//Move up tweets
-		if (randomRampage == false)
+		if (randomRampage == false || displayingDeathMessage == true)
 		{
 			foreach (GameObject tweet in prevTweets)
 			{
@@ -345,6 +362,7 @@ public class GameIntro : MonoBehaviour {
 
 		Debug.LogWarning("STARTED RAMPAGE");
 		isRampaging = true;
+        Camera.main.GetComponent<CameraShake>().DoShake(5f);
 
 		while (i < maxNumTweets)
 		{

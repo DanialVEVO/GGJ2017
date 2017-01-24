@@ -83,6 +83,7 @@
     <Compile Include="Assets\Art\bunny\WaveController.cs" />
     <Compile Include="Assets\Scripts\BunnyBehaviour.cs" />
     <Compile Include="Assets\Scripts\BunnyLane.cs" />
+    <Compile Include="Assets\Scripts\CameraShake.cs" />
     <Compile Include="Assets\Scripts\CarController.cs" />
     <Compile Include="Assets\Scripts\GameIntro\GameIntro.cs" />
     <Compile Include="Assets\Scripts\GameIntro\PostCreator.cs" />
