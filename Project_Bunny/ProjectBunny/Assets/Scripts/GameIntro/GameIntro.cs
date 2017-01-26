@@ -12,8 +12,9 @@ public class GameIntro : MonoBehaviour {
 
 	public int maxStage;
 	public int currentStage;
+    private int[] messagesDisplayed;
 
-	public float popInSpeed;
+    public float popInSpeed;
 
 	public AudioSource source;
 	public AudioClip[] tweetNotification;
@@ -82,22 +83,22 @@ public class GameIntro : MonoBehaviour {
 		Text[] newText = newTweet.GetComponentsInChildren<Text>();
 
 		//Set text
-		if (currentStage < 3)
+        if (currentStage == 0)
+        {
+            newText[0].text = "Symerian Border Police";
+            newText[1].text = "To all Dramerican citizens migrating to the jewel of the Middle-East. GO BACK TO YOUR OWN COUNTRY!";
+            avatarSprite[1].sprite = postCreator.GovPortrait;
+        }
+
+        else if (currentStage < 3)
 		{
-			newText[0].text = "Mr. President @POTUS";
-			newText[1].text = postCreator.POTUSMessage[currentStage];
-			avatarSprite[1].sprite = postCreator.POTUSPortrait;
-		}
+            newText[0].text = "Mr. President @POTUS";
+            newText[1].text = postCreator.POTUSMessage[currentStage];
+            avatarSprite[1].sprite = postCreator.POTUSPortrait;
+        }
 
-		else if (currentStage == 4)
-		{
-			newText[0].text = "Symmerian Border Police";
-			newText[1].text = "To all Dramerican citizens migrating to the jewel of the Middle-East. GO BACK TO YOUR OWN COUNTRY!";
-			avatarSprite[1].sprite = postCreator.GovPortrait;
 
-		}
-
-		else
+        else
 		{
 			newText[0].text = generatedName;
 			newText[1].text = generatedMessage;
@@ -148,7 +149,7 @@ public class GameIntro : MonoBehaviour {
 			avatarSprite[1].sprite = postCreator.SNNPortrait;
 
 			//Place tweet
-			newTweet.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, -360, 0);
+			newTweet.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, -250, 0);
 
             if (displayingDeathMessage == false)
             {
@@ -176,7 +177,7 @@ public class GameIntro : MonoBehaviour {
 
 		else if (deathMessagesDisplayed >= maxDeathMessages)
 		{
-			//DisableEverything();
+			DisableEverything();
 		}
 	}
 
@@ -312,7 +313,7 @@ public class GameIntro : MonoBehaviour {
 	{
 		//Disables all Intro-specific gameObjects
 		//this.gameObject.SetActive(false);
-		mobilePhone.gameObject.SetActive(false);
+		//mobilePhone.gameObject.SetActive(false);
 
 		foreach (GameObject tweet in prevTweets)
 		{
