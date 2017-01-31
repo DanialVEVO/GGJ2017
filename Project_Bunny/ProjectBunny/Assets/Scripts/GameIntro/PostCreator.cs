@@ -395,6 +395,8 @@ public class PostCreator : MonoBehaviour {
     {
         "This is a disgrace! Fake Dramericans leaving the country! SHAME!",
         "Totally biased reporters are slandering my name - do not trust them!",
+        "Ungrateful people are leaving our country! Absolutely UN-DRAMERICAN!",
+        "Symeria is WORSE than Dramerica! Don't believe the press! Dramerica First!",
         "We will make our country GREAT AGAIN!",
     };
 
