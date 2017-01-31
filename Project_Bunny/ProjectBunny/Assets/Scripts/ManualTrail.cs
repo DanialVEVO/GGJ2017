@@ -40,7 +40,8 @@ public class ManualTrail : MonoBehaviour
 	{
 		lineRenderer = GetComponent<LineRenderer>();
 
-		lineRenderer.SetVertexCount(trailResolution);
+		//lineRenderer.SetVertexCount(trailResolution);
+        lineRenderer.numPositions = trailResolution;
 
 		lineSegmentPositions = new Vector3[trailResolution];
 		lineSegmentVelocities = new Vector3[trailResolution];
